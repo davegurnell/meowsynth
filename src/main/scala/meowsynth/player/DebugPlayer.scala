@@ -1,9 +1,9 @@
-package meowsynth.player.debug
+package meowsynth.player
 
 import meowsynth.core._
 import scala.concurrent._
 
-object DebugPlayer {
+object DebugPlayer extends Player {
   def play(song: Song)(implicit ec: ExecutionContext): Future[Unit] = song match {
     case Note(pitch, millis) =>
       Future {

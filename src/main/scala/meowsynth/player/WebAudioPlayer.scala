@@ -1,4 +1,4 @@
-package meowsynth.player.webaudio
+package meowsynth.player
 
 import meowsynth.core._
 
@@ -14,15 +14,12 @@ import org.scalajs.dom.{
   setTimeout
 }
 
-object WebAudioPlayer {
-
+object WebAudioPlayer extends Player {
   def play(song: Song)(implicit ec: ExecutionContext): Future[Unit] = {
     val ctx = new AudioContext()
 
-    for {
-      buffer <- loadSound(ctx, "samples/meow.wav")
-      _      <- playSong(ctx, buffer, song)
-    } yield ()
+    loadSound(ctx, "samples/bell.wav").
+      flatMap(buffer => playSong(ctx, buffer, song))
   }
 
   def loadSound(ctx: AudioContext, url: String): Future[AudioBuffer] = {

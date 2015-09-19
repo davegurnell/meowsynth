@@ -13,7 +13,6 @@ final case class Pitch(number: Int) {
 
 final case class Length(number: Int)
 
-
 object Song {
   val demo: Song =
     Sequence(
