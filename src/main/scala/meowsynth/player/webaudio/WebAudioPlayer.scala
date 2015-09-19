@@ -20,7 +20,7 @@ object WebAudioPlayer {
     val ctx = new AudioContext()
 
     for {
-      buffer <- loadSound(ctx, "meow.wav")
+      buffer <- loadSound(ctx, "samples/meow.wav")
       _      <- playSong(ctx, buffer, song)
     } yield ()
   }

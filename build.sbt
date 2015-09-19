@@ -1,27 +1,16 @@
-lazy val main = crossProject.
-  crossType(CrossType.Full).
-  settings(
-    name           := "meowsynth",
-    organization   := "io.underscore",
-    scalaVersion   := "2.11.6",
-    scalacOptions ++= Seq(
-      "-feature"
-      // "-deprecation"
-    )
-  ).jvmSettings(
-    initialCommands in console := """
-      import meowsynth._
-    """.trim.stripMargin
-  ).jsSettings(
-    persistLauncher         := true,
-    persistLauncher in Test := false,
-    libraryDependencies     += "org.scala-js" %%% "scalajs-dom" % "0.8.1"
-  )
+enablePlugins(ScalaJSPlugin)
+workbenchSettings
 
-lazy val mainJVM = main.jvm
+name                    := "meowsynth"
+organization            := "io.underscore"
+version                 := "0.0.1"
 
-lazy val mainJS  = main.js
+scalaVersion            := "2.11.6"
+scalacOptions           += "-feature"
+//scalacOptions           += "-deprecation"
 
-run     <<= run     in (mainJVM, Compile)
-
-console <<= console in (mainJVM, Compile)
+persistLauncher         := true
+persistLauncher in Test := false
+libraryDependencies     += "org.scala-js" %%% "scalajs-dom" % "0.8.1"
+bootSnippet             := "meowsynth.Main.main()"
+updateBrowsers         <<= updateBrowsers.triggeredBy(fastOptJS in Compile)

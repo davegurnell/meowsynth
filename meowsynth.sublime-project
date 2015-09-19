@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				".git"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
+}
