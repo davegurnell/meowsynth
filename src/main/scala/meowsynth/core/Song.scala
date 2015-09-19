@@ -1,4 +1,4 @@
-package meowsynth.song
+package meowsynth.core
 
 sealed trait Song
 final case class Note(pitch: Pitch, millis: Int) extends Song

@@ -1,6 +1,6 @@
 package meowsynth.player.debug
 
-import meowsynth.song._
+import meowsynth.core._
 import scala.concurrent._
 
 object DebugPlayer {

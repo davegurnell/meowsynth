@@ -1,6 +1,6 @@
 package meowsynth.player.webaudio
 
-import meowsynth.song._
+import meowsynth.core._
 
 import scala.concurrent._
 import scala.scalajs.js

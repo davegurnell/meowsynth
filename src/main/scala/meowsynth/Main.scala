@@ -1,6 +1,6 @@
 package meowsynth
 
-import meowsynth.song._
+import meowsynth.core._
 import meowsynth.player.webaudio._
 import scala.concurrent._
 import scala.concurrent.duration._
