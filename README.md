@@ -2,28 +2,23 @@
 
 The future of feline synthesis.
 
-## Building
+## Compiling and Running the Code
 
-Meowsynth is a ScalaJS project, built using SBT (the Scala Built Tool). All you need to build the code is a working JVM. The SBT launcher takes care of the rest:
+Meowsynth is a ScalaJS project, built using SBT (the Scala Built Tool) and Li Haoyi's [workbench] plugin. All you need to build the code is a working JVM. The SBT launcher takes care of the rest:
 
 ~~~ bash
 # Change to the root directory of the project:
 $ cd meowsynth
 
-# Compile the Javascript code with SBT's `fastOptJS` command
-# (takes a while the first time you run it):
+# Launch SBT:
 $ ./sbt.sh fastOptJS
 
-# Run a web server in the local directory:
-$ python -m SimpleHTTPServer
+# Compile the code from within SBT:
+> fastOptJS
 
-# Finally, open `http://localhost:8000`
-# in your browser to view the site.
+# Leaving SBT running, open the debug server running on `localhost:12345`:
+$ open 'http://localhost:12345/target/scala-2.11/classes/index-dev.html'
 ~~~
-
-SBT will cache a lot of library files in `~/.ivy2`.
-You may want to monitor the size of this cache if you're
-not a regular Scala developer.
 
 ## TODO List
 
@@ -39,3 +34,5 @@ not a regular Scala developer.
 - TODO - Music notation - allow people to program songs using a nice DSL
 - TODO - Web site - create an awesome cat-themed web site
 - TODO - Visuals and animations - make the web site more awesome and cat themed
+
+[workbench]: https://github.com/lihaoyi/workbench
