@@ -1,0 +1,29 @@
+.visualizer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -512px;
+  width: 1024px;
+  height: 344px;
+  background: url('images/casio.jpg');
+  overflow: hidden;
+}
+
+.paw {
+  position: absolute;
+  transition: all 0.2s ease-in-out;
+}
+
+.left-paw {
+  width: 100px;
+  height: 300px;
+  margin-left: -50px;
+  background: url('images/left-paw.png') top left no-repeat;
+}
+
+.right-paw {
+  width: 100px;
+  height: 300px;
+  margin-left: -50px;
+  background: url('images/right-paw.png') top left no-repeat;
+}
