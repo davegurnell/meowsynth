@@ -3,14 +3,14 @@ package meowsynth
 import compose.player._
 
 case class Model(
-  motd      : String,
+  tagline   : String,
   scoreText : String,
   playing   : Set[Command.NoteOn]
 )
 
 object Model {
   def create = Model(
-    motd      = "Hello world!",
+    tagline   = "Loading...",
     scoreText = "a b c",
     playing   = Set.empty
   )

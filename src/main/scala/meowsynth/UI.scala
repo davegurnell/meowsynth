@@ -10,17 +10,27 @@ object UI extends KeyboardPositions {
   val root = ReactComponentB[ModelProxy[Model]]("meowsynth")
     .render_P { proxy =>
       <.div(
-        editor(proxy),
-        visualizer(proxy),
-        transport(proxy)
+        ^.className := "container",
+        <.h1(
+          ^.className := "title",
+          "Meowsynth"
+        ),
+        <.p(
+          ^.className := "tagline",
+          proxy.value.tagline
+        ),
+        // editor(proxy),
+        visualizer(proxy)
+        // transport(proxy)
       )
     }
     .build
 
   val editor = ReactComponentB[ModelProxy[Model]]("editor")
     .render_P { proxy =>
-      <.div(
-        <.textarea(proxy.value.scoreText)
+      <.textarea(
+        ^.className := "editor",
+        ^.value := proxy.value.scoreText
       )
     }
     .build
@@ -80,6 +90,8 @@ trait KeyboardPositions {
   )
 
   private val octavePositions = Seq(
+    0,
+    0,
     0,
     176,
     351,

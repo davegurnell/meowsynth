@@ -13,9 +13,10 @@ lazy val meowsynth = project.in(file("."))
     persistLauncher in Test := false,
     bootSnippet             := "meowsynth.Main().main()",
     updateBrowsers         <<= updateBrowsers.triggeredBy(fastOptJS in Compile),
-    resolvers               += Resolver.bintrayRepo("davegurnell", "maven"),
+    resolvers               += Resolver.bintrayRepo("underscoreio", "training"),
     libraryDependencies    ++= Seq(
-      "com.davegurnell"                   %%% "compose-core"   % "0.2.0-SNAPSHOT" changing(),
+      "io.underscore"                     %%% "compose-core"   % "0.3.0",
+      "io.underscore"                     %%% "compose-player" % "0.3.0",
       "com.github.japgolly.scalajs-react" %%% "core"           % "0.10.4",
       "com.github.japgolly.scalajs-react" %%% "extra"          % "0.10.4",
       "me.chrons"                         %%% "diode"          % "0.5.0",
@@ -24,13 +25,8 @@ lazy val meowsynth = project.in(file("."))
       "me.chrons"                         %%% "boopickle"      % "1.1.2"
     ),
     jsDependencies ++= Seq(
-      ("org.webjars.bower" % "react" % "0.14.7" / "react-with-addons.js")
-        .commonJSName("React")
-        .minified("react-with-addons.min.js"),
-      ("org.webjars.bower" % "react" % "0.14.7" / "react-dom.js")
-        .commonJSName("ReactDOM")
-        .minified("react-dom.min.js")
-        .dependsOn("react-with-addons.js")
+      ("org.webjars.bower" % "react" % "0.14.7" / "react-with-addons.js").commonJSName("React").minified("react-with-addons.min.js"),
+      ("org.webjars.bower" % "react" % "0.14.7" / "react-dom.js").commonJSName("ReactDOM").minified("react-dom.min.js").dependsOn("react-with-addons.js")
     )
   )
 

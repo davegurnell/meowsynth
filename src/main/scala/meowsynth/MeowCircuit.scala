@@ -13,8 +13,8 @@ object MeowCircuit extends Circuit[Model] with ReactConnector[Model] {
 
 class MeowHandler[M](modelRW: ModelRW[M, Model]) extends ActionHandler(modelRW) {
   def handle = {
-    case Action.Motd(text) =>
-      updated(value.copy(motd = text))
+    case Action.SetTagline(tagline) =>
+      updated(value.copy(tagline = tagline))
 
     case Action.PlayerStep(state, command) =>
       println(command + " / " + state.playing)
