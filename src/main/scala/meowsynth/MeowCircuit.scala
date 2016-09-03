@@ -18,7 +18,7 @@ object MeowCircuit extends Circuit[Model] with ReactConnector[Model] {
   var playing: Option[Score] = None
 
   val player = new WebAudioPlayer(
-    sampleUrl = "/target/scala-2.11/classes/samples/meow.wav",
+    sampleUrl = "samples/meow.wav",
     callback  = (state, command) => {
       if(playing.contains(state.score)) {
         dispatch(Action.PlayerStep(state, command))
