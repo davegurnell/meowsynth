@@ -15,9 +15,9 @@ lazy val meowsynth = project.in(file("."))
     updateBrowsers         <<= updateBrowsers.triggeredBy(fastOptJS in Compile),
     resolvers               += Resolver.sonatypeRepo("snapshots"),
     libraryDependencies    ++= Seq(
-      "io.underscore"                     %%% "compose-core"     % "0.4.0",
-      "io.underscore"                     %%% "compose-player"   % "0.4.0",
-      "io.underscore"                     %%% "compose-examples" % "0.4.0",
+      "io.underscore"                     %%% "compose-core"     % "0.5.0",
+      "io.underscore"                     %%% "compose-player"   % "0.5.0",
+      "io.underscore"                     %%% "compose-examples" % "0.5.0",
       "com.github.japgolly.scalajs-react" %%% "core"             % "0.11.1",
       "com.github.japgolly.scalajs-react" %%% "extra"            % "0.11.1",
       "com.lihaoyi"                       %%% "scalatags"        % "0.6.0",

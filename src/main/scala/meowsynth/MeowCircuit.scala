@@ -1,6 +1,7 @@
 package meowsynth
 
-import compose.player._
+import compose.core.Score
+import compose.player.WebAudioPlayer
 import diode._
 import diode.react.ReactConnector
 import scala.concurrent._
@@ -13,9 +14,19 @@ object MeowCircuit extends Circuit[Model] with ReactConnector[Model] {
     new MeowHandler(zoomRW(identity)((model, update) => update))
   )
 
+  // TODO: This is hideous. Work out how to remove it.
+  var playing: Option[Score] = None
+
   val player = new WebAudioPlayer(
     sampleUrl = "/target/scala-2.11/classes/samples/meow.wav",
-    callback  = Some((state, command) => dispatch(Action.PlayerStep(state, command)))
+    callback  = (state, command) => {
+      if(playing.contains(state.score)) {
+        dispatch(Action.PlayerStep(state, command))
+        state
+      } else {
+        state.stop
+      }
+    }
   )
 }
 
@@ -25,14 +36,15 @@ class MeowHandler[M](modelRW: ModelRW[M, Model]) extends ActionHandler(modelRW) 
       updated(value.copy(tagline = tagline))
 
     case Action.Play(song) =>
+      MeowCircuit.playing = Some(song.score)
       MeowCircuit.player.play(song.score, song.tempo)
       updated(value.copy(playing = Some(song)))
 
     case Action.Stop =>
+      MeowCircuit.playing = None
       updated(value.copy(playing = None))
 
     case Action.PlayerStep(state, command) =>
-      println(command + " / " + state.playing)
       updated(value.copy(activeNotes = state.playing))
   }
 }
