@@ -1,6 +1,6 @@
 name         in ThisBuild := "meowsynth"
 organization in ThisBuild := "com.davegurnell"
-version      in ThisBuild := "0.1.0"
+version      in ThisBuild := "1.0.0"
 scalaVersion in ThisBuild := "2.11.8"
 
 lazy val meowsynth = project.in(file("."))
