@@ -1,30 +1,99 @@
+ @import 'https://fonts.googleapis.com/css?family=Bitter';
+
+html, body {
+  font-size: 16pt;
+  font-family: 'Bitter', Verdana, sans-serif;
+  color: #fff;
+}
+
+a, a:hover, a:visited {
+  color: #fff;
+}
+
+.background {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/spaaace.jpg');
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
 .container {
-  margin: 0 auto;
+  margin: 40px auto;
   width: 780px;
+  padding: 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
 }
 
 .title {
-  text-align: center;
+  margin: 0;
 }
 
-.tagline {
-  text-align: center;
+.song-menu {
+  margin: 0 auto;
+  max-width: 20em;
+  list-style: none;
+  padding-left: 0;
 }
 
-.editor {
+button {
+  display: block;
+  margin: 5px 0;
+  padding: 5px 10px;
   width: 100%;
-  height: 20em;
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #000;
+  font-size: 16pt;
+  font-family: 'Bitter', Verdana, sans-serif;
 }
 
-.visualizer {
+button:hover {
+  background: #ddd;
+  cursor: pointer;
+}
+
+button.playing {
+  background: #0f0;
+}
+
+button.playing:hover {
+  background: #0d0;
+}
+
+button.stop {
+  background: #f00;
+}
+
+button.stop:hover {
+  background: #d00;
+}
+
+.keyboard {
+  transition: all 0.6s ease-in-out;
   position: absolute;
   bottom: 0;
   left: 50%;
   margin-left: -512px;
   width: 1024px;
   height: 344px;
-  background: url('images/casio.jpg');
+  background: url('images/casio.png');
   overflow: hidden;
+}
+
+.keyboard.keyboard-hidden {
+  bottom: -344px;
 }
 
 .paw {
@@ -44,4 +113,13 @@
   height: 300px;
   margin-left: -50px;
   background: url('images/right-paw.png') top left no-repeat;
+}
+
+.credits {
+  margin: 20px 0;
+  font-size: 75%;
+}
+
+.credits p {
+  margin: 5px 0;
 }
