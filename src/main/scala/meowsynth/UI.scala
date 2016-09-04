@@ -104,7 +104,8 @@ object UI extends KeyboardPositions {
         "Copyright 2015-16 ", <.a(^.href := "http://davegurnell.com", "Dave Gurnell"), ". "
       ),
       <.p(
-        "Built with ", <.a(^.href := "http://scala-js.org", "ScalaJS"), ". ",
+        "Built with ", <.a(^.href := "http://scala-js.org", "ScalaJS"),
+        " and ", <.a(^.href := "https://github.com/underscoreio/compose", "Compose"), ". ",
         "Grab the code from ", <.a(^.href := "https://github.com/davegurnell/meowsynth", "Github"), "."
       ),
       <.p(
@@ -112,7 +113,7 @@ object UI extends KeyboardPositions {
         <.a(
           ^.href := "http://www.catsonsynthesizersinspace.com/post/99721923347",
           "Cats on Synthesizers in Space"
-        )
+        ), "."
       )
     )
 
