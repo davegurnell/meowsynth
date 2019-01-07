@@ -38,6 +38,20 @@ $ ./sbt.sh
 $ open 'http://localhost:12345/target/scala-2.11/classes/index-dev.html'
 ~~~
 
+## Deploying the Code
+
+~~~bash
+# Compile/copy everything to the dist directory:
+./build.sh
+
+# Commit the dist directory:
+git add .
+git commit -m 'Build ready for deployment'
+
+# Deploy to gh-pages:
+./deploy.sh
+~~~
+
 [davegurnell]: http://davegurnell.com
 [license]: http://www.apache.org/licenses/LICENSE-2.0.txt
 [gitter]: https://gitter.im/underscoreio/scala?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
